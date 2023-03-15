@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Skills</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <h1>DAN'S SKILLS</h1>
+    
+    
+
+    <ul>
+            <% skills.forEach(s => { %>
+                <li>
+                    <a href="/skills/<%= s.id %>"><%= s.skill %></a>
+                    -
+                    <%= s.learned ? s.level : 'Not started yet'%>
+                    <form method="POST" action="/skills/<%= s.id %>?_method=DELETE">
+                        <button type="submit">Remove</button>
+                    </form>
+                </li>
+            <% }) %>
+    </ul>
+
+    <a href="skills/new">Add New Skill</a>
+</body>
+</html>
